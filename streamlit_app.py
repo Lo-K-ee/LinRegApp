@@ -6,5 +6,8 @@ st.info('Hey, Welcome!!!')
 
 st.write('This is a linear regression app that deploys the regression model for your data based on your inputs, please upload your data to proceed:')
 
-st.button('upload')
+
+col1, col2, col3 = st.beta_columns([1,1,1])
+col2.button('upload')
+
 
