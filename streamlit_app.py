@@ -23,7 +23,7 @@ with st.expander('Uploaded raw data'):
 if df is not None:
   with st.expander('Select the variables for further analysis'):
     col_name = df.columns.to_list()
-    dependant = st.checkbox('Choose the dependant variables:', col_name)
+    dependant = st.selectbox('Choose the dependant variables:', col_name)
     
 
 
