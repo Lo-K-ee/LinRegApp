@@ -9,6 +9,7 @@ st.write('This is a linear regression app that deploys the regression model for 
 st.text("")
 col1, col2, col3 = st.columns([1,1,1])
 st.markdown("***")
-col2.button('upload')
+col3.button('upload')
+
 
 
