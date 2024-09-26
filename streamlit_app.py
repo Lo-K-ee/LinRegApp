@@ -18,8 +18,10 @@ with st.expander('Uploaded raw data'):
     st.write('The file has been successfully uploaded:')
     df
 
-# with st.expander('Select the variables for further analysis'):
-  
+with st.expander('Select the variables for further analysis'):
+  col_name = df.columns.to_list()
+  # st.write('Choose the dependant variables:')
+  st.radio('Choose the dependant variables:', col_name)
 
 
 
