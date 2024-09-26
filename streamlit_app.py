@@ -15,9 +15,9 @@ file = col3.file_uploader('Upload your CSV file', type="csv")
 
 with st.expander('Uploaded raw data'):
   if file is not None: 
-  df = pd.read_csv(file)
-  st.write('The file has been successfully uploaded:')
-  df
+    df = pd.read_csv(file)
+    st.write('The file has been successfully uploaded:')
+    df
 
 # with st.expander('Select the variables for further analysis'):
 #   col_name = df.columns.to_list()
