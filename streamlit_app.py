@@ -23,8 +23,14 @@ with st.expander('Uploaded raw data'):
 if df is not None:
   with st.expander('Select the variables for further analysis'):
     col_name = df.columns.to_list()
-    dependant = st.multiselect('Choose the dependant variables:', col_name)
-    independant = [col for col in col_name for col not in dependant
+    dependent = st.multiselect('Choose the dependent variables:', col_name)
+    independent = [col for col in col_name for col not in dependent]
+    st.write('The dependent features are')
+    dependent
+    st.write('The independent features are')
+    independent
+  # with st.expander('The variables for analysis are:')
+  #   X = df.
 
 
 
