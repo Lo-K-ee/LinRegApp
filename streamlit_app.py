@@ -7,9 +7,9 @@ st.info('Hey, Welcome!!!')
 st.write('This is a linear regression app that deploys the regression model for your data based on your inputs, please upload your data to proceed:')
 
 st.text("") #add-line
-col1, col2, col3 = st.columns([1,1,1]) #splitting the space into 3 columns for alignment
+col1, col2, col3, col4, col5 = st.columns([1,1,1,1,1]) #splitting the space into 5 columns for alignment
 st.markdown("***")
-col2.button('upload')
+col3.button('upload')
 
 
 
