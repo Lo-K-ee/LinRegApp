@@ -29,6 +29,10 @@ if df is not None:
     dependent
     st.write('The independent features are')
     independent
+    st.button('Submit'):
+      dep_features = dependent
+      indep_features = independent
+    
   # with st.expander('The variables for analysis are:')
   #   X = df.
 
