@@ -38,7 +38,7 @@ if df is not None:
       y = df[dependent]
 
 if df is not None:
-  with st.expander('The variables for analysis are:')
+  with st.expander('The variables for analysis are:'):
     st.write('The dependent features')
     X
     st.write('The independent features')
