@@ -27,17 +27,22 @@ if df is not None:
     col_name = df.columns.to_list()
     dependent = st.multiselect('Choose the dependent variables:', col_name)
     independent = [item for item in col_name if item not in dependent]
-    st.write('The dependent features are')
+    st.write('The dependent columns are')
     dependent
-    st.write('The independent features are')
+    st.write('The independent columns are')
     independent
     if st.button('Submit the features'):
       dep_features = dependent
       indep_features = independent
-      dep_features
-    
-  # with st.expander('The variables for analysis are:')
-  #   X = df.
+      X = df[independent]
+      y = df[dependent]
+
+if df is not None:
+  with st.expander('The variables for analysis are:')
+    st.write('The dependent features')
+    X
+    st.write('The independent features')
+    y
 
 
 
