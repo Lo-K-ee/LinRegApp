@@ -14,7 +14,7 @@ file = col3.file_uploader('Upload your CSV file', type="csv")
 df = None
 
 with st.expander('Uploaded raw data'):
-  if file is not None:
+  if file is None:
     st.write('Please upload the file to continue')
   else:
     df = pd.read_csv(file)
