@@ -29,7 +29,7 @@ if df is not None:
     dependent
     st.write('The independent features are')
     independent
-    with st.button('Submit'):
+    if st.button('Submit the features'):
       dep_features = dependent
       indep_features = independent
     
