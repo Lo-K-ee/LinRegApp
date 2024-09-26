@@ -10,7 +10,8 @@ st.write('This is a linear regression app that deploys the regression model for 
 st.text("") #add-line
 col1, col2, col3, col4, col5 = st.columns([1,1,1,1,1]) #splitting the space into 5 columns for alignment
 st.markdown("***")
-file = col3.file_uploader('Upload your CSV file', type="csv")
+file = col3.file_uploader('Upload your CSV file', type="csv")d
+df = 0
 
 with st.expander('Uploaded raw data'):
   if file is not None:
