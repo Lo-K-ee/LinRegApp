@@ -12,10 +12,11 @@ col1, col2, col3, col4, col5 = st.columns([1,1,1,1,1]) #splitting the space into
 st.markdown("***")
 file = col3.file_uploader('Upload your CSV file', type="csv")
 
-if file is not None:
-  df = pd.read_csv(file)
-  st.write('The uploaded file:')
-  df
+with st.expander('Uploaded raw data'):
+  if file is not None:
+    df = pd.read_csv(file)
+    st.write('The file has been successfully uploaded:')
+    df
 
 
 
