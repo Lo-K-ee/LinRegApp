@@ -14,17 +14,16 @@ file = col3.file_uploader('Upload your CSV file', type="csv")
 df = None
 
 with st.expander('Uploaded raw data'):
-  if file is not None: 
+  if file is not None:
+    st.write('Please upload the file to continue')
+  else:
     df = pd.read_csv(file)
     st.write('The file has been successfully uploaded:')
     df
-  else:
-    st.write('Please upload the file to continue')
-
-with st.expander('Select the variables for further analysis'):
-  col_name = df.columns.to_list()
-  # st.write('Choose the dependant variables:')
-  st.radio('Choose the dependant variables:', col_name)
+    with st.expander('Select the variables for further analysis'):
+      col_name = df.columns.to_list()
+      # st.write('Choose the dependant variables:')
+      st.radio('Choose the dependant variables:', col_name)
 
 
 
