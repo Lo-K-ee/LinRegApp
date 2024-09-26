@@ -24,7 +24,7 @@ if df is not None:
   with st.expander('Select the variables for further analysis'):
     col_name = df.columns.to_list()
     # st.write('Choose the dependant variables:')
-    st.radio('Choose the dependant variables:', col_name)
+    st.checkbox('Choose the dependant variables:', col_name)
 
 
 
