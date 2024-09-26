@@ -4,7 +4,7 @@ A user-friendly app for training and deploying linear regression models. Users c
 
 ## Demo App
 
-[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://ml-linreg-app.streamlit.app/)
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://t-linreg-app.streamlit.app/)
 
 ## GitHub Codespaces
 
