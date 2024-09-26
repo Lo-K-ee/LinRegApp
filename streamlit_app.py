@@ -12,6 +12,8 @@ col1, col2, col3, col4, col5 = st.columns([1,1,1,1,1]) #splitting the space into
 st.markdown("***")
 file = col3.file_uploader('Upload your CSV file', type="csv")
 df = None
+X = None
+y = None
 
 with st.expander('Uploaded raw data'):
   if file is None:
@@ -32,6 +34,7 @@ if df is not None:
     if st.button('Submit the features'):
       dep_features = dependent
       indep_features = independent
+      dep_features
     
   # with st.expander('The variables for analysis are:')
   #   X = df.
