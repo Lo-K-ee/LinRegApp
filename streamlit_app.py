@@ -18,6 +18,8 @@ with st.expander('Uploaded raw data'):
     df = pd.read_csv(file)
     st.write('The file has been successfully uploaded:')
     df
+  else:
+    st.write('Please upload the file to continue')
 
 with st.expander('Select the variables for further analysis'):
   col_name = df.columns.to_list()
