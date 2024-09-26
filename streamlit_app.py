@@ -24,7 +24,7 @@ if df is not None:
   with st.expander('Select the variables for further analysis'):
     col_name = df.columns.to_list()
     dependent = st.multiselect('Choose the dependent variables:', col_name)
-    independent = [col for col in col_name for col not in dependent]
+    independent = col_name - dependent
     st.write('The dependent features are')
     dependent
     st.write('The independent features are')
