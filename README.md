@@ -1,13 +1,10 @@
-# 📦 Streamlit App Starter Kit 
-```
-⬆️ (Replace above with your app's name)
-```
+# 📦 Linear Regression App
 
-Description of the app ...
+A user-friendly app for training and deploying linear regression models. Users can upload data, select variables, and get predictions with ease. Built with Python and Streamlit.
 
 ## Demo App
 
-[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://app-starter-kit.streamlit.app/)
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://ml-linreg-app.streamlit.app/)
 
 ## GitHub Codespaces
 
