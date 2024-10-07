@@ -42,8 +42,7 @@ if df is not None:
         df
       elif norm_type == "One-Hot Encoder":
         ohe = OneHotEncoder()
-        for col in nonum_col.columns:
-          encoded_cols = ohe.fit_transform(df[col])
+        encoded_cols = ohe.fit_transform(df[col])
         st.write('After encoding the features using one-hot encoder')
         encoded_cols
         
