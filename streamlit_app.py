@@ -21,19 +21,32 @@ with st.expander('Uploaded raw data'):
   if file is None:
     st.write('Please upload the file to continue')
   else:
-    df0 = pd.read_csv(file)
+    df = pd.read_csv(file)
     st.write('The file has been successfully uploaded:')
-    df0
-if df0 is not None:
+    df
+    
+if df is not None:
   with st.expander('Normalizing the non-numerical features'):
-    num_col = df0.select_dtypes(include='number')
-    nonum_col = df0.select_dtypes(exclude='number')
+    num_col = df.select_dtypes(include='number')
+    nonum_col = df.select_dtypes(exclude='number')
     st.write('The non-numerical features are:')
     nonum_col
     if nonum_col.shape[1] > 0:
-      st.radio("Choose your Normalization method", ["Label Encoder", "One-Hot Encoder"], captions=["suitable for ordinal variables, where the categories have a specific order or ranking", 
+      norm_type = st.radio("Choose your Normalization method", ["Label Encoder", "One-Hot Encoder"], captions=["suitable for ordinal variables, where the categories have a specific order or ranking", 
                                                                                                    "suitable for situations where data has no relation to each other"])
-    
+      if norm_type == "Label Encoder":
+        le = LabelEncoder()
+        for col in nonum_col.columns:
+          df[col] = le.transform(df[col])
+        st.write('After encoding the features using label encoder')
+        df
+      else if norm_type == "One-Hot Encoder":
+        ohe = OneHotEncoder(sparse=False)
+        for col in nonum_col.columns:
+          df[col] = ohe.transform(df[col])
+        st.write('After encoding the features using one-hot encoder')
+        df
+        
 if df is not None:
   with st.expander('Select the variables for further analysis'):
     col_name = df.columns.to_list()
