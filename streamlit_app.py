@@ -1,5 +1,7 @@
 import streamlit as st
 import pandas as pd
+from sklearn.preprocessing import LabelEncoder, OneHotEncoder
+
 
 st.title('📈 Linear Regression App')
 
@@ -23,6 +25,12 @@ with st.expander('Uploaded raw data'):
     st.write('The file has been successfully uploaded:')
     df
 if df is not None:
+  with st.expander('Normalizing the non-numerical features'):
+    nonum_col = df.select_dftypes(exclude='number')
+    nonum_col
+    # if df.select_dtypes(exclude='number').shape[1] > 0:
+    
+if df is not None:
   with st.expander('Select the variables for further analysis'):
     col_name = df.columns.to_list()
     dependent = st.multiselect('Choose the dependent variables:', col_name)
@@ -44,6 +52,6 @@ if df is not None:
     st.write('The independent features')
     y
 
-
+    
 
 
