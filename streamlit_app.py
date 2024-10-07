@@ -12,8 +12,8 @@ st.text("") #add-line
 col1, col2, col3, col4, col5 = st.columns([1,1,1,1,1]) #splitting the space into 5 columns for alignment
 st.markdown("***")
 file = col3.file_uploader('Upload your CSV file', type="csv")
-df0 = None
-df = None
+df0 = None # data before normalizing
+df = None # data after normalizing
 X = None
 y = None
 
@@ -26,8 +26,8 @@ with st.expander('Uploaded raw data'):
     df0
 if df0 is not None:
   with st.expander('Normalizing the non-numerical features'):
-    num_col = df.select_dtypes(include='number')
-    nonum_col = df.select_dtypes(exclude='number')
+    num_col = df0.select_dtypes(include='number')
+    nonum_col = df0.select_dtypes(exclude='number')
     st.write('The non-numerical features are:')
     nonum_col
     if nonum_col.shape[1] > 0:
