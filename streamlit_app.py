@@ -37,13 +37,13 @@ if df is not None:
       if norm_type == "Label Encoder":
         le = LabelEncoder()
         for col in nonum_col.columns:
-          df[col] = le.transform(df[col])
+          df[col] = le.fit_transform(df[col])
         st.write('After encoding the features using label encoder')
         df
       elif norm_type == "One-Hot Encoder":
         ohe = OneHotEncoder(sparse=False)
         for col in nonum_col.columns:
-          df[col] = ohe.transform(df[col])
+          df[col] = ohe.fit_transform(df[col])
         st.write('After encoding the features using one-hot encoder')
         df
         
