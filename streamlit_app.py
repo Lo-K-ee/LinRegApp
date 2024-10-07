@@ -40,7 +40,7 @@ if df is not None:
           df[col] = le.transform(df[col])
         st.write('After encoding the features using label encoder')
         df
-      else if norm_type == "One-Hot Encoder":
+      elif norm_type == "One-Hot Encoder":
         ohe = OneHotEncoder(sparse=False)
         for col in nonum_col.columns:
           df[col] = ohe.transform(df[col])
