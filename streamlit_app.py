@@ -33,7 +33,7 @@ if df is not None:
     nonum_col
     if nonum_col.shape[1] > 0:
       norm_type = st.radio("Choose your Normalization method", ["Label Encoder", "One-Hot Encoder"], captions=["suitable for ordinal variables, where the categories have a specific order or ranking", 
-                                                                                                   "suitable for situations where data has no relation to each other"])
+                                                                                                   "suitable for situations where data has no relation to each other"], index=None)
       if norm_type == "Label Encoder":
         le = LabelEncoder()
         for col in nonum_col.columns:
