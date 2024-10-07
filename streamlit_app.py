@@ -26,7 +26,7 @@ with st.expander('Uploaded raw data'):
     df
 if df is not None:
   with st.expander('Normalizing the non-numerical features'):
-    nonum_col = df.select_dftypes(exclude='number')
+    nonum_col = df.select_dtypes(exclude='number')
     nonum_col
     # if df.select_dtypes(exclude='number').shape[1] > 0:
     
