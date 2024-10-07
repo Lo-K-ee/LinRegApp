@@ -42,7 +42,7 @@ if df is not None:
         df
       elif norm_type == "One-Hot Encoder":
         ohe = OneHotEncoder()
-        encoded_cols = ohe.fit_transform(nonum_col.columns)
+        encoded_cols = ohe.fit_transform(nonum_col)
         encoded_df = pd.DataFrame(encoded_cols, columns=ohe.get_features_name_out(nonum_col.columns))
         df = pd.concat([df.drop(nonum_col.columns, axis=1), encoded_df], axis=1)
         st.write('After encoding the features using one-hot encoder')
