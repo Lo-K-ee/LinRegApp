@@ -2,7 +2,6 @@ import streamlit as st
 import pandas as pd
 from sklearn.preprocessing import LabelEncoder, OneHotEncoder
 
-
 st.title('📈 Linear Regression App')
 
 st.info('Hey, Welcome!!!')
@@ -13,6 +12,7 @@ st.text("") #add-line
 col1, col2, col3, col4, col5 = st.columns([1,1,1,1,1]) #splitting the space into 5 columns for alignment
 st.markdown("***")
 file = col3.file_uploader('Upload your CSV file', type="csv")
+df0 = None
 df = None
 X = None
 y = None
@@ -21,14 +21,18 @@ with st.expander('Uploaded raw data'):
   if file is None:
     st.write('Please upload the file to continue')
   else:
-    df = pd.read_csv(file)
+    df0 = pd.read_csv(file)
     st.write('The file has been successfully uploaded:')
-    df
-if df is not None:
+    df0
+if df0 is not None:
   with st.expander('Normalizing the non-numerical features'):
+    num_col = df.select_dtypes(include='number')
     nonum_col = df.select_dtypes(exclude='number')
+    st.write('The non-numerical features are:')
     nonum_col
-    # if df.select_dtypes(exclude='number').shape[1] > 0:
+    if nonum_col.shape[1] > 0:
+      st.radio("Choose your Normalization method", ["Label Encoder", "One-Hot Encoder"], captions=["suitable for ordinal variables, where the categories have a specific order or ranking", 
+                                                                                                   "suitable for situations where data has no relation to each other"])
     
 if df is not None:
   with st.expander('Select the variables for further analysis'):
