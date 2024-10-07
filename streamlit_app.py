@@ -43,9 +43,9 @@ if df is not None:
       elif norm_type == "One-Hot Encoder":
         ohe = OneHotEncoder()
         for col in nonum_col.columns:
-          df[col] = ohe.fit_transform(df[col])
+          encoded_cols = ohe.fit_transform(df[col])
         st.write('After encoding the features using one-hot encoder')
-        df
+        encoded_cols
         
 if df is not None:
   with st.expander('Select the variables for further analysis'):
