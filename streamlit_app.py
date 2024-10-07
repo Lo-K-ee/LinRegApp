@@ -71,8 +71,8 @@ if df is not None:
     st.write('The independent features')
     y
 
-if df is not None:
-  with st.expander('Predicting the target variable using linear regression'):
+#if df is not None:
+ # with st.expander('Predicting the target variable using linear regression'):
     
 
 
