@@ -34,8 +34,8 @@ if df is not None:
     if st.button('Submit the features'):
       dep_features = dependent
       indep_features = independent
-      X = df[independent]
-      y = df[dependent]
+      X = df[indep_features]
+      y = df[dep_features]
 
 if df is not None:
   with st.expander('The variables for analysis are:'):
