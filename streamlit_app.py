@@ -89,7 +89,7 @@ if inc == 2:
       y_pred = lin_reg.predict(X_test)
       # Model Evaluation
       rmse = mean_squared_error(y_test, y_pred, squared=False)
-      print(f'RMSE: {rmse}')
+      st.write(f'RMSE: {rmse}')
     
     
 
