@@ -4,6 +4,8 @@ from sklearn.preprocessing import LabelEncoder, OneHotEncoder
 from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_squared_error
+from sklearn.preprocessing import StandardScaler
+
 
 st.title('📈 Linear Regression App')
 
@@ -16,8 +18,8 @@ col1, col2, col3, col4, col5 = st.columns([1,1,1,1,1]) #splitting the space into
 st.markdown("***")
 file = col3.file_uploader('Upload your CSV file', type="csv")
 df = None # data 
-X = None
-y = None
+X = None # independent features
+y = None # dependent features
 inc = 0 # incrementer
 
 with st.expander('Uploaded raw data'):
@@ -67,20 +69,22 @@ if inc == 1:
       if st.button('Submit the features'):
         dep_features = dependent
         indep_features = independent
-        X = df[dep_features]
-        y = df[indep_features]
+        X = df[indep_features]
+        y = df[dep_features]
         inc += 1
 
 if inc == 2:
   if df is not None:
     with st.expander('The variables for analysis are:'):
       st.write('The dependent features')
-      X
-      st.write('The independent features')
       y
+      st.write('The independent features')
+      X
 
 if inc == 2:
   if df is not None:
+    scaler = StandardScaler()
+    X = scaler.fit_transform(X)
     with st.expander('Fitting the model & predicting:'):
       st.write('The model has been fitted to 80% training data and tested on the remaining 20% data')
       X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
