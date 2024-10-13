@@ -15,6 +15,7 @@ file = col3.file_uploader('Upload your CSV file', type="csv")
 df = None # data 
 X = None
 y = None
+inc = None # incrementer
 
 with st.expander('Uploaded raw data'):
   if file is None:
@@ -46,29 +47,33 @@ if df is not None:
         df = pd.concat([df.drop(nonum_col.columns, axis=1), encoded_df], axis=1)
         st.write('After encoding the features using one-hot encoder')
         df
+    inc += 1
                                 
-        
-if df is not None:
-  with st.expander('Select the variables for further analysis'):
-    col_name = df.columns.to_list()
-    dependent = st.multiselect('Choose the dependent variables:', col_name)
-    independent = [item for item in col_name if item not in dependent]
-    st.write('The dependent columns are')
-    dependent
-    st.write('The independent columns are')
-    independent
-    if st.button('Submit the features'):
-      dep_features = dependent
-      indep_features = independent
-      X = df[indep_features]
-      y = df[dep_features]
 
-if df is not None:
-  with st.expander('The variables for analysis are:'):
-    st.write('The dependent features')
-    X
-    st.write('The independent features')
-    y
+if inc == 1:
+  if df is not None:
+    with st.expander('Select the variables for further analysis'):
+      col_name = df.columns.to_list()
+      dependent = st.multiselect('Choose the dependent variables:', col_name)
+      independent = [item for item in col_name if item not in dependent]
+      st.write('The dependent columns are')
+      dependent
+      st.write('The independent columns are')
+      independent
+      if st.button('Submit the features'):
+        dep_features = dependent
+        indep_features = independent
+        X = df[indep_features]
+        y = df[dep_features]
+        inc += 1
+
+if inc == 2:
+  if df is not None:
+    with st.expander('The variables for analysis are:'):
+      st.write('The dependent features')
+      X
+      st.write('The independent features')
+      y
 
 #if df is not None:
  # with st.expander('Predicting the target variable using linear regression'):
