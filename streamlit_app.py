@@ -47,7 +47,7 @@ if df is not None:
         df = pd.concat([df.drop(nonum_col.columns, axis=1), encoded_df], axis=1)
         st.write('After encoding the features using one-hot encoder')
         df
-    inc += 1
+      inc += 1
                                 
 
 if inc == 1:
