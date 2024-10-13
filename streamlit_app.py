@@ -15,7 +15,7 @@ file = col3.file_uploader('Upload your CSV file', type="csv")
 df = None # data 
 X = None
 y = None
-inc = None # incrementer
+inc = 0 # incrementer
 
 with st.expander('Uploaded raw data'):
   if file is None:
