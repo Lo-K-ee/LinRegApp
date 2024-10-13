@@ -67,8 +67,8 @@ if inc == 1:
       if st.button('Submit the features'):
         dep_features = dependent
         indep_features = independent
-        X = df[indep_features]
-        y = df[dep_features]
+        X = df[dep_features]
+        y = df[indep_features]
         inc += 1
 
 if inc == 2:
