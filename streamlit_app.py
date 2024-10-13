@@ -40,6 +40,7 @@ if df is not None:
           df[col] = le.fit_transform(df[col])
         st.write('After encoding the features using label encoder')
         df
+        inc += 1
       elif norm_type == "One-Hot Encoder":
         ohe = OneHotEncoder(sparse_output=False)
         encoded_cols = ohe.fit_transform(nonum_col)
@@ -47,7 +48,7 @@ if df is not None:
         df = pd.concat([df.drop(nonum_col.columns, axis=1), encoded_df], axis=1)
         st.write('After encoding the features using one-hot encoder')
         df
-      inc += 1
+        inc += 1
                                 
 
 if inc == 1:
