@@ -1,6 +1,9 @@
 import streamlit as st
 import pandas as pd
 from sklearn.preprocessing import LabelEncoder, OneHotEncoder
+from sklearn.linear_model import LinearRegression
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import mean_squared_error
 
 st.title('📈 Linear Regression App')
 
@@ -76,8 +79,18 @@ if inc == 2:
       st.write('The independent features')
       y
 
-#if df is not None:
- # with st.expander('Predicting the target variable using linear regression'):
+if inc == 2:
+  if df is not None:
+    with st.expander('Fitting the model & predicting:'):
+      st.write('The model has been fitted to 80% training data and tested on the remaining 20% data')
+      X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+      lin_reg = LinearRegression()
+      lin_reg.fit(X_train, y_train)
+      y_pred = lin_reg.predict(X_test)
+      # Model Evaluation
+      rmse = mean_squared_error(y_test, y_pred, squared=False)
+      print(f'RMSE: {rmse}')
+    
     
 
 
