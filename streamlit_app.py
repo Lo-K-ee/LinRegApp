@@ -83,11 +83,12 @@ if inc == 2:
 
 if inc == 2:
   if df is not None:
-    scaler = StandardScaler()
-    X = scaler.fit_transform(X)
     with st.expander('Fitting the model & predicting:'):
       st.write('The model has been fitted to 80% training data and tested on the remaining 20% data')
       X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+      scaler = StandardScaler()
+      X_train = scaler.fit_transform(X_train)
+      X_test = scaler.transform(X_test)
       lin_reg = LinearRegression()
       lin_reg.fit(X_train, y_train)
       y_pred = lin_reg.predict(X_test)
